@@ -1,0 +1,18 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  background-color: White;
+  font-family: "Helvetica", Georgia, sans-serif;
+  color: DarkGrey;
+}
+
+/* nav style */
+.nav-tabs {
+  text-align: right;
+  font-family: "Helvetica", Georgia;
+  font-weight: lighter;
+}
+.nav-tabs a:hover {
+  color: Blue;
+}
