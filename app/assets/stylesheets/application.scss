@@ -5,6 +5,7 @@ body {
   background-color: White;
   font-family: "Helvetica", Georgia, sans-serif;
   color: DarkGrey;
+  font-weight: bolder;
 }
 
 /* nav style */
@@ -15,4 +16,12 @@ body {
 }
 .nav-tabs a:hover {
   color: Blue;
+}
+
+/* footer style */
+footer {
+  font-weight: lighter;
+  font-size: 15px;
+  margin-top: 50px;
+  margin-left: 25px;
 }
