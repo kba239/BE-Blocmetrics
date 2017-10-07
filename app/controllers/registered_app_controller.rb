@@ -7,7 +7,7 @@ class RegisteredAppController < ApplicationController
 
     if @registeredapp.save
       flash[:notice] = "Your app is now registered."
-      redirect_to @registeredapp
+      redirect_to root_path
     else
       flash[:notice] = "There was an error registering your app."
       render :new
@@ -15,11 +15,11 @@ class RegisteredAppController < ApplicationController
   end
 
   def new
-    @registeredapp = Registeredapp.new
+    @registeredapp = RegisteredApp.new
   end
 
   def show
-    @registeredapp = Registeredapp.find(params[:id])
+    @registeredapp = RegisteredApp.find(params[:id])
     unless @registeredapp.user == current_user
       flash[:notice] = "Sorry, you are not authorized to view this app."
       redirect_to root_path
@@ -28,7 +28,7 @@ class RegisteredAppController < ApplicationController
 
   def index
     @registeredapps = []
-    @userapps = Registeredapp.all
+    @userapps = RegisteredApp.all
     @userapps.each do |app|
       if app.user == current_user
         @registeredapps.push(app)
@@ -37,17 +37,17 @@ class RegisteredAppController < ApplicationController
   end
 
   def edit
-    @registeredapp = Registeredapp.find(params[:id])
+    @registeredapp = RegisteredApp.find(params[:id])
   end
 
   def update
-    @registeredapp = Registeredapp.find(params[:id])
+    @registeredapp = RegisteredApp.find(params[:id])
     @registeredapp.name = params[:registeredapp][:name]
     @registeredapp.url = params[:registeredapp][:url]
 
     if @registeredapp.save
       flash[:notice] = "Your registered app has been updated."
-      redirect_to @registeredapp
+      redirect_to root_path
     else
       flash[:notice] = "There was an error updating your registered app."
       render :edit
@@ -55,10 +55,10 @@ class RegisteredAppController < ApplicationController
   end
 
   def destroy
-    @registeredapp = Registeredapp.find(params[:id])
+    @registeredapp = RegisteredApp.find(params[:id])
     if @registeredapp.destroy
       flash[:notice] = "\"#{@registeredapp.name}\" was deleted successfully."
-      redirect_to registeredapps_path
+      redirect_to root_path
     else
       flash[:notice] = "There was an error deleting your app."
       render :show
