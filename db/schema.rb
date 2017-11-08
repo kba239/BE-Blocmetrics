@@ -13,12 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20170919195134) do
 
-  create_table "registered_applications", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "registered_apps", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
